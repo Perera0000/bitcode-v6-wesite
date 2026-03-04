@@ -1,4 +1,5 @@
 import ParticleBackground from "@/components/ParticleBackground";
+import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -19,6 +20,7 @@ export default function Home() {
         backgroundImage: "radial-gradient(ellipse at 50% 0%, rgba(106,0,255,0.08) 0%, transparent 60%)",
       }}
     >
+      <CustomCursor />
       <ParticleBackground />
       <div className="relative z-10">
         <Navbar />
