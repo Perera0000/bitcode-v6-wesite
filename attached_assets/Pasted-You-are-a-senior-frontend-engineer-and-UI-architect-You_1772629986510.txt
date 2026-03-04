@@ -1,0 +1,238 @@
+You are a senior frontend engineer and UI architect.
+
+Your task is to build a complete modern hackathon-style website inspired by the structure, animations, layout, and visual style of this website:
+
+https://codesprint.lk/
+
+Do NOT copy content directly, but replicate the same design system, architecture, UI patterns, smooth animations, component structure, and overall user experience.
+
+The final website must look like a professional tech event landing page similar to CodeSprint but customized for a magical coding competition.
+
+PROJECT NAME
+BITCODE V6.0 – Inter University Coding Competition
+
+TAGLINE
+Debug the Dark. Rise with Magic.
+
+ORGANIZER
+Business Information Technology Students’ Association (BITSA)
+Department of Information Systems
+Faculty of Management Studies
+Rajarata University of Sri Lanka
+
+THEME
+Magical Tech Universe
+
+Coding is represented as magic. Developers are wizards defeating bugs using code spells.
+
+DESIGN GOALS
+Replicate the CodeSprint style layout and experience including:
+
+• dark futuristic UI
+• neon glow effects
+• smooth scroll transitions
+• animated sections
+• glassmorphism cards
+• particle background
+• modern hackathon landing page layout
+
+TECH STACK (must follow)
+
+Next.js (App Router architecture)
+React
+Tailwind CSS
+Framer Motion for animations
+Lucide icons
+TypeScript
+
+Use component-based architecture.
+
+PROJECT STRUCTURE
+
+/app
+/components
+/ui
+/hooks
+/utils
+/public/assets
+/styles
+
+Ensure reusable components.
+
+FONTS
+
+Use futuristic tech fonts similar to CodeSprint.
+
+Headings: Orbitron or Space Grotesk
+Body text: Inter
+
+Enable smooth typography scaling.
+
+COLOR SYSTEM
+
+Background: #0B0F19
+Magic Purple: #6A00FF
+Neon Cyan: #00E5FF
+Electric Violet: #9333EA
+
+Use gradient overlays and glow effects.
+
+HERO SECTION
+
+Full-screen hero section with animated magical particles.
+
+Elements:
+
+BITCODE V6.0
+Inter University Coding Competition
+
+Tagline:
+Debug the Dark. Rise with Magic.
+
+Include:
+
+• glowing title animation
+• floating magical particles
+• animated CTA buttons
+• scroll indicator animation
+
+BUTTONS
+
+Register Now
+Explore Event
+
+ANIMATIONS
+
+Use Framer Motion to implement:
+
+• scroll reveal animations
+• staggered card animations
+• hover glow effects
+• floating particle effects
+• smooth section transitions
+
+ABOUT SECTION
+
+BITCODE is a prestigious annual coding competition organized by the Business Information Technology Students’ Association of the Department of Information Systems, Faculty of Management Studies at Rajarata University of Sri Lanka.
+
+The competition promotes logical thinking, programming expertise, and problem solving skills among university students.
+
+OBJECTIVES SECTION
+
+Display animated cards with icons:
+
+• Demonstrate coding and analytical skills
+• Encourage innovation and teamwork
+• Solve real world problems using technology
+• Enhance competitive programming ability
+• Build connections with industry professionals
+
+COMPETITION FORMAT
+
+PRE-SELECTION ROUND
+
+Online coding contest using HackerRank
+Duration: 3 hours
+30 questions
+Difficulty levels: Easy, Medium, Hard, Expert
+Supervised via Zoom
+
+FINAL ROUND
+
+18 hour physical hackathon at Rajarata University.
+
+Teams build a functional solution and present to judges.
+
+PRIZE POOL
+
+Total Prize Pool: LKR 130,000
+
+1st Place – LKR 50,000
+2nd Place – LKR 30,000
+3rd Place – LKR 15,000
+
+4th – 10th place teams receive LKR 5,000 each.
+
+TIMELINE
+
+March 10 – Registration Opens
+March 21 – Registration Closes
+March 26 – Pre Selection Round
+March 28 – Finalists Announcement
+April 02 – Final Hackathon
+April 02 – Award Ceremony
+
+Display this as an animated vertical timeline similar to modern tech event websites.
+
+JUDGING CRITERIA
+
+Innovation & Originality – 30%
+Real World Impact – 30%
+Technical Quality – 20%
+Presentation – 20%
+
+TECHNICAL PLATFORMS
+
+HackerRank for coding challenges
+Zoom for supervision
+
+SUPPORTED PROGRAMMING LANGUAGES
+
+Python
+C
+C++
+Java
+C#
+JavaScript
+PHP
+TypeScript
+VB.NET
+
+REGISTER SECTION
+
+Call-to-action with glowing magical background.
+
+Text:
+
+Join the Magical Coding Battle
+
+Button:
+
+Register Your Team
+
+FOOTER
+
+BITSA
+Department of Information Systems
+Faculty of Management Studies
+Rajarata University of Sri Lanka
+
+Contact Email:
+
+[bitsa@mgt.rjt.ac.lk](mailto:bitsa@mgt.rjt.ac.lk)
+
+UX REQUIREMENTS
+
+• fully responsive design
+• smooth scrolling navigation
+• interactive hover effects
+• optimized loading performance
+• modern startup landing page design
+
+VISUAL STYLE
+
+The website must feel like a magical tech battle arena where coders become wizards and code becomes magic.
+
+Add subtle particle effects, glow animations, and futuristic tech UI elements inspired by CodeSprint style.
+
+OUTPUT REQUIREMENTS
+
+Generate a complete Next.js project with:
+
+• proper folder structure
+• reusable components
+• Tailwind styling
+• Framer Motion animations
+• responsive design
+
+The result should be a production-ready modern hackathon landing page.
