@@ -7,7 +7,8 @@ const navLinks = [
   { label: "Competition", href: "#competition" },
   { label: "Prizes", href: "#prizes" },
   { label: "Timeline", href: "#timeline" },
-  { label: "Judging", href: "#judging" },
+  { label: "Contact", href: "#contact" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Navbar() {
@@ -62,7 +63,7 @@ export default function Navbar() {
               </span>
             </motion.div>
 
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-6">
               {navLinks.map((link) => (
                 <button
                   key={link.label}
@@ -88,7 +89,7 @@ export default function Navbar() {
             </div>
 
             <button
-              className="md:hidden text-gray-300 hover:text-white transition-colors"
+              className="lg:hidden text-gray-300 hover:text-white transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               data-testid="button-mobile-menu"
             >

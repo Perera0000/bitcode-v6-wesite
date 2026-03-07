@@ -6,7 +6,8 @@ const footerLinks = [
   { label: "Competition", href: "#competition" },
   { label: "Prizes", href: "#prizes" },
   { label: "Timeline", href: "#timeline" },
-  { label: "Judging", href: "#judging" },
+  { label: "Contact", href: "#contact" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 export default function Footer() {
@@ -61,9 +62,7 @@ export default function Footer() {
                     onClick={() => handleNav(link.href)}
                     className="font-sans text-gray-400 hover:text-[#00E5FF] transition-colors text-sm flex items-center gap-1.5 group"
                   >
-                    <span
-                      className="w-0 group-hover:w-3 h-[1px] bg-[#00E5FF] transition-all duration-300"
-                    />
+                    <span className="w-0 group-hover:w-3 h-[1px] bg-[#00E5FF] transition-all duration-300" />
                     {link.label}
                   </button>
                 </li>

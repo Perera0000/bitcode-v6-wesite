@@ -1,0 +1,115 @@
+Update the existing BITCODE V6.0 website.
+
+Current tabs already implemented:
+
+• About
+• Competition
+• Prizes
+• Timeline
+
+Remove the "Judging" section completely from the website.
+
+The final navigation menu should contain:
+
+About
+Competition
+Prizes
+Timeline
+Contact
+FAQ
+
+---
+
+CONTACT SECTION
+
+Create a modern contact section similar to hackathon websites like codesprint.lk.
+
+Design style:
+
+• 3 profile cards layout
+• dark futuristic UI
+• glassmorphism card design
+• hover glow animation
+• responsive grid layout
+
+Each contact card should include:
+
+• Profile image
+• Full name
+• Phone number
+• Email address
+
+Contact details:
+
+Card 1
+
+Name: Mahesh Perera
+Phone: 0713457187
+Email: [mgt2022256@mgt.rjt.ac.lk](mailto:mgt2022256@mgt.rjt.ac.lk)
+
+Card 2
+
+Name: Rashmi Layanvi
+Phone: 0715963424
+Email: [mgt2022068@mgt.rjt.ac.lk](mailto:mgt2022068@mgt.rjt.ac.lk)
+
+Card 3
+
+Name: Sewwandi Senavirathna
+Phone: 0714900001
+Email: [mgt2022312@mgt.rjt.ac.lk](mailto:mgt2022312@mgt.rjt.ac.lk)
+
+Place the profile images above the names in each card.
+
+Add subtle hover animation and glowing border effects.
+
+---
+
+FAQ SECTION
+
+Create a modern accordion style FAQ section similar to professional hackathon event websites.
+
+Design style:
+
+• collapsible FAQ items
+• smooth expand animation
+• dark themed UI
+• glowing question headers
+
+Questions and answers:
+
+1. What is BITCODE V6.0?
+
+BITCODE V6.0 is an inter university coding competition organized by the Business Information Technology Students’ Association of Rajarata University. The event challenges university students to solve programming problems and develop innovative solutions through competitive coding and hackathon style challenges.
+
+2. Who can participate?
+
+Students currently enrolled in recognized government universities in Sri Lanka can participate. Each team must consist of three members including one team leader.
+
+3. What are the competition tracks?
+
+The competition includes programming challenges focusing on algorithms, data structures, and problem solving. Participants can use languages such as Python, Java, C, C++, JavaScript, and others supported by the HackerRank platform.
+
+4. How does the competition progress?
+
+The competition begins with an online Pre Selection Round where teams solve coding challenges. The top teams qualify for the Final Round which is an 18 hour physical hackathon held at Rajarata University.
+
+5. When do registrations open?
+
+Registrations open on March 10 and close on March 21. Teams must complete the official registration form before the deadline.
+
+6. Is there a registration fee?
+
+No. Participation in BITCODE V6.0 is completely free for all eligible university teams.
+
+7. What do winners receive?
+
+Winners receive cash prizes, certificates, and recognition for their technical achievements. The total prize pool is LKR 130,000.
+
+---
+
+Ensure the Contact and FAQ sections match the existing magical futuristic design of the website.
+
+Use Tailwind CSS and Framer Motion animations for hover effects and accordion transitions.
+
+Make sure the sections are fully responsive for desktop and mobile.

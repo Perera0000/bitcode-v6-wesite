@@ -7,9 +7,17 @@ import Objectives from "@/components/Objectives";
 import CompetitionFormat from "@/components/CompetitionFormat";
 import PrizePools from "@/components/PrizePools";
 import Timeline from "@/components/Timeline";
-import JudgingCriteria from "@/components/JudgingCriteria";
+import Contact from "@/components/Contact";
+import FAQ from "@/components/FAQ";
 import Register from "@/components/Register";
 import Footer from "@/components/Footer";
+
+const Divider = ({ from, to }: { from: string; to: string }) => (
+  <div
+    className="h-px mx-auto max-w-5xl"
+    style={{ background: `linear-gradient(90deg, transparent, ${from}, ${to}, transparent)` }}
+  />
+);
 
 export default function Home() {
   return (
@@ -33,46 +41,25 @@ export default function Home() {
           }}
         >
           <About />
-
-          <div
-            className="h-px mx-auto max-w-5xl"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(106,0,255,0.3), rgba(0,229,255,0.3), transparent)" }}
-          />
+          <Divider from="rgba(106,0,255,0.3)" to="rgba(0,229,255,0.3)" />
 
           <Objectives />
-
-          <div
-            className="h-px mx-auto max-w-5xl"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(0,229,255,0.3), rgba(147,51,234,0.3), transparent)" }}
-          />
+          <Divider from="rgba(0,229,255,0.3)" to="rgba(147,51,234,0.3)" />
 
           <CompetitionFormat />
-
-          <div
-            className="h-px mx-auto max-w-5xl"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(255,215,0,0.2), rgba(106,0,255,0.3), transparent)" }}
-          />
+          <Divider from="rgba(255,215,0,0.2)" to="rgba(106,0,255,0.3)" />
 
           <PrizePools />
-
-          <div
-            className="h-px mx-auto max-w-5xl"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(106,0,255,0.3), rgba(147,51,234,0.3), transparent)" }}
-          />
+          <Divider from="rgba(106,0,255,0.3)" to="rgba(147,51,234,0.3)" />
 
           <Timeline />
+          <Divider from="rgba(0,229,255,0.3)" to="rgba(106,0,255,0.3)" />
 
-          <div
-            className="h-px mx-auto max-w-5xl"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(139,92,246,0.3), rgba(0,229,255,0.2), transparent)" }}
-          />
+          <Contact />
+          <Divider from="rgba(147,51,234,0.3)" to="rgba(0,229,255,0.2)" />
 
-          <JudgingCriteria />
-
-          <div
-            className="h-px mx-auto max-w-5xl"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(106,0,255,0.4), rgba(0,229,255,0.4), transparent)" }}
-          />
+          <FAQ />
+          <Divider from="rgba(106,0,255,0.4)" to="rgba(0,229,255,0.4)" />
 
           <Register />
         </div>
