@@ -7,6 +7,7 @@ import Objectives from "@/components/Objectives";
 import CompetitionFormat from "@/components/CompetitionFormat";
 import PrizePools from "@/components/PrizePools";
 import Timeline from "@/components/Timeline";
+import PastEvent from "@/components/PastEvent";
 import Contact from "@/components/Contact";
 import FAQ from "@/components/FAQ";
 import Register from "@/components/Register";
@@ -53,7 +54,10 @@ export default function Home() {
           <Divider from="rgba(106,0,255,0.3)" to="rgba(147,51,234,0.3)" />
 
           <Timeline />
-          <Divider from="rgba(0,229,255,0.3)" to="rgba(106,0,255,0.3)" />
+          <Divider from="rgba(0,229,255,0.3)" to="rgba(147,51,234,0.3)" />
+
+          <PastEvent />
+          <Divider from="rgba(147,51,234,0.3)" to="rgba(106,0,255,0.3)" />
 
           <Contact />
           <Divider from="rgba(147,51,234,0.3)" to="rgba(0,229,255,0.2)" />
