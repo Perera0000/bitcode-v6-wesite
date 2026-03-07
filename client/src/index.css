@@ -267,4 +267,31 @@
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.06);
   }
+
+  /* ── Contact card: spinning gradient ring ── */
+  @keyframes ring-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  @keyframes ring-pulse {
+    0%, 100% { opacity: 0.55; filter: blur(1px); }
+    50%       { opacity: 0.9;  filter: blur(2px); }
+  }
+
+  .contact-ring-track {
+    animation: ring-spin 4s linear infinite;
+  }
+
+  .contact-ring-glow {
+    animation: ring-spin 4s linear infinite, ring-pulse 2.5s ease-in-out infinite;
+  }
+
+  .group:hover .contact-ring-track {
+    animation-duration: 1.8s;
+  }
+
+  .group:hover .contact-ring-glow {
+    animation-duration: 1.8s, 1.2s;
+  }
 }
