@@ -3,7 +3,7 @@ import { Mail, Zap, MapPin } from "lucide-react";
 import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 const REGISTER_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLScHRqJVI9TFfr4c_w9X7Bahh7q0BFkOy8_N2L8wkv1SQAeAuA/viewform?usp=sharing&ouid=115102210409702182625";
+  "https://forms.gle/t5rgVJw7FVczj8saA";
 
 const footerLinks = [
   { label: "ABOUT", href: "#about" },
