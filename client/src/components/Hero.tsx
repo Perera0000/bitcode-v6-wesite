@@ -1,50 +1,180 @@
+import { useRef, useState, Component, ReactNode } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, Sparkles } from "lucide-react";
+import Spline from "@splinetool/react-spline";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
-const floatingOrbs = [
-  { size: 300, x: "10%", y: "20%", color: "rgba(106,0,255,0.12)", delay: 0 },
-  { size: 400, x: "70%", y: "10%", color: "rgba(0,229,255,0.08)", delay: 1 },
-  { size: 200, x: "80%", y: "60%", color: "rgba(147,51,234,0.15)", delay: 2 },
-  { size: 250, x: "5%", y: "70%", color: "rgba(0,229,255,0.1)", delay: 0.5 },
-];
+gsap.registerPlugin(ScrollTrigger);
 
-const magicSpells = ["Debugging...", "Compiling...", "Deploying...", "Casting Spells..."];
+const REGISTER_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLScHRqJVI9TFfr4c_w9X7Bahh7q0BFkOy8_N2L8wkv1SQAeAuA/viewform?usp=sharing&ouid=115102210409702182625";
+
+class SplineErrorBoundary extends Component<
+  { children: ReactNode; fallback: ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: ReactNode; fallback: ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) return this.props.fallback;
+    return this.props.children;
+  }
+}
+
+function detectWebGL(): boolean {
+  try {
+    const canvas = document.createElement("canvas");
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
+    );
+  } catch {
+    return false;
+  }
+}
+
+const GalaxyFallback = () => (
+  <>
+    <div
+      className="absolute inset-0"
+      style={{
+        background:
+          "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(106,0,255,0.4) 0%, rgba(147,51,234,0.15) 40%, #0B0F19 75%)",
+      }}
+    />
+    {[
+      { size: 380, x: "8%", y: "18%", color: "rgba(106,0,255,0.14)" },
+      { size: 480, x: "68%", y: "8%", color: "rgba(0,229,255,0.09)" },
+      { size: 260, x: "78%", y: "58%", color: "rgba(147,51,234,0.16)" },
+      { size: 300, x: "3%", y: "65%", color: "rgba(0,229,255,0.11)" },
+    ].map((orb, i) => (
+      <motion.div
+        key={i}
+        className="absolute rounded-full pointer-events-none blur-3xl"
+        style={{
+          width: orb.size,
+          height: orb.size,
+          left: orb.x,
+          top: orb.y,
+          background: orb.color,
+        }}
+        animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }}
+        transition={{ duration: 7 + i * 1.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.7 }}
+      />
+    ))}
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMikiIGZpbGwtcnVsZT0ibm9uemVybyI+PHBhdGggZD0iTTM2IDM0djZoNnYtNmgtNnptNiA2djZoNnYtNmgtNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20" />
+  </>
+);
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const splineWrapRef = useRef<HTMLDivElement>(null);
+  const heroContentRef = useRef<HTMLDivElement>(null);
+  const scrollIndicatorRef = useRef<HTMLButtonElement>(null);
+  const [splineLoaded, setSplineLoaded] = useState(false);
+  const [webGLSupported] = useState(() => detectWebGL());
+
   const handleNav = (href: string) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
+  useGSAP(
+    () => {
+      const section = sectionRef.current;
+      if (!section) return;
+
+      gsap.to(splineWrapRef.current, {
+        scale: 2.4,
+        transformOrigin: "50% 50%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "bottom top",
+          scrub: 2,
+        },
+      });
+
+      gsap.to(heroContentRef.current, {
+        opacity: 0,
+        y: -70,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "55% top",
+          scrub: 1.2,
+        },
+      });
+
+      gsap.to(scrollIndicatorRef.current, {
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "25% top",
+          scrub: 1,
+        },
+      });
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" id="hero">
-      {floatingOrbs.map((orb, i) => (
-        <motion.div
-          key={i}
-          className="absolute rounded-full pointer-events-none blur-3xl"
-          style={{
-            width: orb.size,
-            height: orb.size,
-            left: orb.x,
-            top: orb.y,
-            background: orb.color,
-          }}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.6, 1, 0.6],
-          }}
-          transition={{
-            duration: 6 + orb.delay,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: orb.delay,
-          }}
-        />
-      ))}
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      id="hero"
+    >
+      {/* ── 3D Galaxy background ── */}
+      <div
+        ref={splineWrapRef}
+        className="absolute inset-0 z-0 will-change-transform"
+        style={{ pointerEvents: "none" }}
+      >
+        {/* Gradient shown while Spline loads or as fallback */}
+        <div
+          className="absolute inset-0 transition-opacity duration-1000"
+          style={{ opacity: splineLoaded ? 0 : 1, zIndex: 1 }}
+        >
+          <GalaxyFallback />
+        </div>
 
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMikiIGZpbGwtcnVsZT0ibm9uemVybyI+PHBhdGggZD0iTTM2IDM0djZoNnYtNmgtNnptNiA2djZoNnYtNmgtNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20" />
+        {webGLSupported && (
+          <SplineErrorBoundary fallback={<GalaxyFallback />}>
+            <Spline
+              scene="https://prod.spline.design/EHeMmhu8d8IeXpBM/scene.splinecode"
+              onLoad={() => setSplineLoaded(true)}
+              style={{ width: "100%", height: "100%" }}
+            />
+          </SplineErrorBoundary>
+        )}
+      </div>
 
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+      {/* ── Overlay vignette ── */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 35%, rgba(11,15,25,0.55) 100%)",
+        }}
+      />
+
+      {/* ── Hero UI ── */}
+      <div
+        ref={heroContentRef}
+        data-testid="hero-content"
+        className="relative z-10 text-center px-4 max-w-6xl mx-auto will-change-transform"
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -66,14 +196,16 @@ export default function Hero() {
           <h1
             className="font-orbitron font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-white leading-none tracking-tighter"
             style={{
-              textShadow: "0 0 40px rgba(106,0,255,0.5), 0 0 80px rgba(106,0,255,0.2)",
+              textShadow:
+                "0 0 40px rgba(106,0,255,0.5), 0 0 80px rgba(106,0,255,0.2)",
             }}
           >
             BIT
             <span
               className="text-transparent bg-clip-text"
               style={{
-                backgroundImage: "linear-gradient(135deg, #6A00FF 0%, #9333EA 40%, #00E5FF 100%)",
+                backgroundImage:
+                  "linear-gradient(135deg, #6A00FF 0%, #9333EA 40%, #00E5FF 100%)",
               }}
             >
               CODE
@@ -139,7 +271,7 @@ export default function Hero() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <motion.a
-            href="https://docs.google.com/forms/d/e/1FAIpQLScHRqJVI9TFfr4c_w9X7Bahh7q0BFkOy8_N2L8wkv1SQAeAuA/viewform?usp=sharing&ouid=115102210409702182625"
+            href={REGISTER_URL}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
@@ -148,7 +280,8 @@ export default function Hero() {
             className="relative px-8 py-4 rounded-md font-grotesk font-bold text-base text-white overflow-hidden group"
             style={{
               background: "linear-gradient(135deg, #6A00FF, #9333EA)",
-              boxShadow: "0 0 30px rgba(106,0,255,0.5), 0 0 60px rgba(106,0,255,0.2)",
+              boxShadow:
+                "0 0 30px rgba(106,0,255,0.5), 0 0 60px rgba(106,0,255,0.2)",
             }}
           >
             <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
@@ -209,13 +342,15 @@ export default function Hero() {
         </motion.div>
       </div>
 
+      {/* ── Scroll indicator ── */}
       <motion.button
+        ref={scrollIndicatorRef}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
         onClick={() => handleNav("#about")}
         data-testid="hero-scroll-indicator"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-400 hover:text-[#00E5FF] transition-colors cursor-pointer"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-gray-400 hover:text-[#00E5FF] transition-colors z-10 will-change-[opacity]"
       >
         <span className="font-sans text-xs tracking-widest uppercase">Scroll</span>
         <motion.div
@@ -226,8 +361,9 @@ export default function Hero() {
         </motion.div>
       </motion.button>
 
+      {/* ── Bottom gradient blending into next section ── */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none z-[2]"
         style={{
           background: "linear-gradient(to bottom, transparent, #0B0F19)",
         }}
