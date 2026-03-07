@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X, Zap, BookOpen } from "lucide-react";
 
 const REGISTER_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLScHRqJVI9TFfr4c_w9X7Bahh7q0BFkOy8_N2L8wkv1SQAeAuA/viewform?usp=sharing&ouid=115102210409702182625";
 
 const navLinks = [
   { label: "ABOUT", href: "#about" },
-  { label: "COMPETITION", href: "#competition" },
   { label: "PRIZES", href: "#prizes" },
   { label: "TIMELINE", href: "#timeline" },
   { label: "CONTACT", href: "#contact" },
@@ -44,6 +43,7 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
+            {/* Logo */}
             <motion.div
               className="flex items-center gap-2 cursor-pointer"
               whileHover={{ scale: 1.03 }}
@@ -66,7 +66,8 @@ export default function Navbar() {
               </span>
             </motion.div>
 
-            <div className="hidden lg:flex items-center gap-6">
+            {/* Desktop nav */}
+            <div className="hidden xl:flex items-center gap-5">
               {navLinks.map((link) => (
                 <button
                   key={link.label}
@@ -78,6 +79,23 @@ export default function Navbar() {
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00E5FF] group-hover:w-full transition-all duration-300" />
                 </button>
               ))}
+
+              {/* Delegate Booklet button */}
+              <motion.a
+                href="#delegate-booklet"
+                onClick={(e) => e.preventDefault()}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                data-testid="nav-delegate-btn"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-md font-grotesk font-bold text-xs tracking-widest text-[#00E5FF] border border-[#00E5FF]/40 relative overflow-hidden group"
+                style={{ boxShadow: "0 0 12px rgba(0,229,255,0.15)" }}
+              >
+                <span className="absolute inset-0 bg-[#00E5FF] opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                <BookOpen className="w-3.5 h-3.5 relative z-10" />
+                <span className="relative z-10">DELEGATE BOOKLET</span>
+              </motion.a>
+
+              {/* Register Now button */}
               <motion.a
                 href={REGISTER_URL}
                 target="_blank"
@@ -93,8 +111,9 @@ export default function Navbar() {
               </motion.a>
             </div>
 
+            {/* Mobile hamburger */}
             <button
-              className="lg:hidden text-gray-300 hover:text-white transition-colors"
+              className="xl:hidden text-gray-300 hover:text-white transition-colors"
               onClick={() => setMobileOpen(!mobileOpen)}
               data-testid="button-mobile-menu"
             >
@@ -104,6 +123,7 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -123,10 +143,18 @@ export default function Navbar() {
               </button>
             ))}
             <a
+              href="#delegate-booklet"
+              onClick={(e) => { e.preventDefault(); setMobileOpen(false); }}
+              className="flex items-center gap-2 px-5 py-3 rounded-md font-grotesk font-bold text-xs tracking-widest text-[#00E5FF] border border-[#00E5FF]/30 text-center justify-center"
+            >
+              <BookOpen className="w-4 h-4" />
+              DELEGATE BOOKLET
+            </a>
+            <a
               href={REGISTER_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 px-5 py-3 rounded-md font-grotesk font-bold text-xs tracking-widest text-white bg-gradient-to-r from-[#6A00FF] to-[#9333EA] text-center"
+              className="px-5 py-3 rounded-md font-grotesk font-bold text-xs tracking-widest text-white bg-gradient-to-r from-[#6A00FF] to-[#9333EA] text-center"
             >
               REGISTER NOW
             </a>

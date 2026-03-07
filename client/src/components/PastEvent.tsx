@@ -22,9 +22,9 @@ const AUTOPLAY_DELAY = 3500;
 export default function PastEvent() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
-  const [paused, setPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const dragStartX = useRef(0);
+  const isDragging = useRef(false);
 
   const go = useCallback(
     (next: number, dir?: number) => {
@@ -38,13 +38,15 @@ export default function PastEvent() {
   const prev = useCallback(() => go(current - 1, -1), [current, go]);
   const next = useCallback(() => go(current + 1, 1), [current, go]);
 
+  /* Autoplay never pauses on hover — only temporarily during drag gesture */
   useEffect(() => {
-    if (paused) return;
-    timerRef.current = setInterval(() => go(current + 1, 1), AUTOPLAY_DELAY);
+    timerRef.current = setInterval(() => {
+      if (!isDragging.current) go(current + 1, 1);
+    }, AUTOPLAY_DELAY);
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [current, paused, go]);
+  }, [current, go]);
 
   const variants = {
     enter: (d: number) => ({
@@ -123,8 +125,6 @@ export default function PastEvent() {
               boxShadow: "0 0 0 1px rgba(106,0,255,0.2), 0 0 60px rgba(106,0,255,0.15), 0 0 120px rgba(0,229,255,0.05)",
               background: "rgba(11,15,25,0.8)",
             }}
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
           >
             {/* Aspect ratio box */}
             <div className="relative w-full" style={{ paddingBottom: "52%" }}>
@@ -142,12 +142,12 @@ export default function PastEvent() {
                   dragElastic={0.08}
                   onDragStart={(_, info) => {
                     dragStartX.current = info.point.x;
-                    setPaused(true);
+                    isDragging.current = true;
                   }}
                   onDragEnd={(_, info) => {
                     const diff = dragStartX.current - info.point.x;
                     if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
-                    setPaused(false);
+                    isDragging.current = false;
                   }}
                 >
                   <motion.img

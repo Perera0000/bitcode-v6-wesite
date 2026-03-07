@@ -7,7 +7,6 @@ const REGISTER_URL =
 
 const footerLinks = [
   { label: "ABOUT", href: "#about" },
-  { label: "COMPETITION", href: "#competition" },
   { label: "PRIZES", href: "#prizes" },
   { label: "TIMELINE", href: "#timeline" },
   { label: "CONTACT", href: "#contact" },

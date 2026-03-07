@@ -1,0 +1,125 @@
+Update the BITCODE V6.0 website with the following improvements.
+
+---
+
+1. PAST EVENT IMAGE SLIDER FIX
+
+Currently the Past Event image slider stops moving when the mouse cursor is placed over an image.
+
+Update the slider so that:
+
+• images continue sliding automatically even when the cursor is hovering on them
+• autoplay should not pause on hover
+• keep smooth transition animation
+• maintain infinite loop behavior
+
+Ensure the slider continues moving smoothly regardless of cursor position.
+
+---
+
+2. REMOVE "COMPETITION" TAB FROM NAVBAR
+
+Remove the "COMPETITION" item from the navigation bar.
+
+Important:
+
+• Do NOT remove the competition section from the homepage
+• The competition content section should still exist when users scroll down the page
+
+Only remove the tab from the navigation menu.
+
+Final navigation structure should be:
+
+ABOUT
+PRIZES
+TIMELINE
+CONTACT
+FAQ
+
+---
+
+3. ADD "DELEGATE BOOKLET" BUTTON
+
+Create a new button in the navbar similar to the "REGISTER NOW" button.
+
+Button text:
+
+DELEGATE BOOKLET
+
+Design requirements:
+
+• modern futuristic button style
+• glowing border or gradient background
+• rounded corners
+• hover glow animation
+
+Position:
+
+Place the button near the right side of the navbar before the REGISTER NOW button.
+
+Example layout:
+
+ABOUT | PRIZES | TIMELINE | CONTACT | FAQ | DELEGATE BOOKLET | REGISTER NOW
+
+Function:
+
+For now the button should not open anything.
+
+Use a placeholder link:
+
+#delegate-booklet
+
+Later this button will link to a downloadable PDF booklet.
+
+---
+
+4. IMPROVE CUSTOM CURSOR
+
+Update the custom cursor to better match the futuristic magical coding theme.
+
+Cursor design:
+
+• glowing neon circle around the cursor
+• color theme: #00E5FF and #6A00FF
+• smooth trailing dot following the cursor
+
+Hover interactions:
+
+• cursor slightly scales when hovering buttons
+• glow becomes stronger
+• smooth animation
+
+Ensure the cursor feels modern and smooth without lag.
+
+---
+
+5. VIDEO PREVIEW IMPROVEMENT
+
+Improve the floating video feature so it works like the video preview on https://codesprint.lk
+
+Requirements:
+
+• show a preview thumbnail of the video
+• clicking the video button opens a modal popup
+• modal contains the embedded video player
+• background becomes dark with blur effect
+• add smooth fade-in animation
+
+Video player requirements:
+
+• autoplay when modal opens
+• pause when modal closes
+• responsive layout for mobile and desktop
+
+---
+
+GENERAL REQUIREMENTS
+
+Maintain the magical futuristic design style of the website.
+
+Use:
+
+Tailwind CSS styling
+Framer Motion animations
+
+Ensure everything remains responsive and smooth across devices.
