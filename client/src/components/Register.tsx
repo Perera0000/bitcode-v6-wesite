@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Sparkles, ArrowRight, Users } from "lucide-react";
 
+const REGISTER_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLScHRqJVI9TFfr4c_w9X7Bahh7q0BFkOy8_N2L8wkv1SQAeAuA/viewform?usp=sharing&ouid=115102210409702182625";
+
 export default function Register() {
   return (
     <section id="register" className="relative py-32 px-4 overflow-hidden">
@@ -104,7 +107,9 @@ export default function Register() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <motion.a
-              href="mailto:bitsa@mgt.rjt.ac.lk"
+              href={REGISTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.06 }}
               whileTap={{ scale: 0.97 }}
               data-testid="register-team-btn"

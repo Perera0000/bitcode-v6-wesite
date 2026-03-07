@@ -1,0 +1,96 @@
+Update the existing BITCODE V6.0 website with the following improvements.
+
+---
+
+1. SOCIAL MEDIA SECTION
+
+Create a social media section in the footer with clickable icons.
+
+Use modern icon style (Lucide Icons or FontAwesome).
+
+Each icon should redirect to the official page when clicked.
+
+Social Media Links:
+
+Facebook
+https://www.facebook.com/bitcoderusl
+
+Instagram
+https://www.instagram.com/bitsa_rusl?igsh=bTZwZzFkNWw4aXRl
+
+YouTube
+https://www.youtube.com/c/BITSA
+
+LinkedIn
+https://www.linkedin.com/company/bitsa-department-of-information-systems/posts/?feedView=all
+
+WhatsApp Channel
+https://whatsapp.com/channel/0029VanFP4BHrDZmg4GdJy2T
+
+Design requirements:
+
+• Icons should appear in a horizontal row
+• Add hover glow effect
+• Use theme colors (#00E5FF or #6A00FF)
+• Clicking an icon should open the link in a new tab
+
+---
+
+2. NAVIGATION TABS
+
+Update all navigation menu items to be displayed in CAPITAL LETTERS.
+
+Final menu structure:
+
+ABOUT
+COMPETITION
+PRIZES
+TIMELINE
+CONTACT
+FAQ
+
+---
+
+3. REGISTER BUTTON LINK
+
+Update the "Register Now" button so that it redirects to the official Google Form.
+
+Google Form URL:
+
+https://docs.google.com/forms/d/e/1FAIpQLScHRqJVI9TFfr4c_w9X7Bahh7q0BFkOy8_N2L8wkv1SQAeAuA/viewform?usp=sharing&ouid=115102210409702182625
+
+Requirements:
+
+• Clicking the button opens the form in a new tab
+• Button should keep existing glow animation
+
+---
+
+4. WEBSITE FAVICON
+
+Add a coding themed favicon to the website.
+
+Use an icon that represents programming or coding such as:
+
+</>
+{}
+or a minimal code bracket symbol.
+
+Requirements:
+
+• Use a clean minimal icon
+• Color should match the magical tech theme (#6A00FF or #00E5FF)
+• Favicon should appear in the browser tab
+
+---
+
+5. DESIGN CONSISTENCY
+
+Ensure all new elements match the existing magical futuristic design.
+
+Use:
+
+Tailwind CSS styling
+Framer Motion hover animations
+
+The UI must remain consistent with the existing hackathon-style theme.

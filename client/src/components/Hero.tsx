@@ -138,10 +138,12 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1.3 }}
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
-          <motion.button
+          <motion.a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScHRqJVI9TFfr4c_w9X7Bahh7q0BFkOy8_N2L8wkv1SQAeAuA/viewform?usp=sharing&ouid=115102210409702182625"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => handleNav("#register")}
             data-testid="hero-register-btn"
             className="relative px-8 py-4 rounded-md font-grotesk font-bold text-base text-white overflow-hidden group"
             style={{
@@ -154,7 +156,7 @@ export default function Hero() {
               <Sparkles className="w-4 h-4" />
               Register Now
             </span>
-          </motion.button>
+          </motion.a>
 
           <motion.button
             whileHover={{ scale: 1.05 }}

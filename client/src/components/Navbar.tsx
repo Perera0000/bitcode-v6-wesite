@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap } from "lucide-react";
 
+const REGISTER_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLScHRqJVI9TFfr4c_w9X7Bahh7q0BFkOy8_N2L8wkv1SQAeAuA/viewform?usp=sharing&ouid=115102210409702182625";
+
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Competition", href: "#competition" },
-  { label: "Prizes", href: "#prizes" },
-  { label: "Timeline", href: "#timeline" },
-  { label: "Contact", href: "#contact" },
+  { label: "ABOUT", href: "#about" },
+  { label: "COMPETITION", href: "#competition" },
+  { label: "PRIZES", href: "#prizes" },
+  { label: "TIMELINE", href: "#timeline" },
+  { label: "CONTACT", href: "#contact" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -68,24 +71,26 @@ export default function Navbar() {
                 <button
                   key={link.label}
                   onClick={() => handleNav(link.href)}
-                  className="text-gray-300 hover:text-[#00E5FF] transition-colors duration-200 font-grotesk text-sm font-medium relative group"
+                  className="text-gray-300 hover:text-[#00E5FF] transition-colors duration-200 font-grotesk text-xs font-bold tracking-widest relative group"
                   data-testid={`nav-link-${link.label.toLowerCase()}`}
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00E5FF] group-hover:w-full transition-all duration-300" />
                 </button>
               ))}
-              <motion.button
+              <motion.a
+                href={REGISTER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => handleNav("#register")}
                 data-testid="nav-register-btn"
-                className="px-5 py-2 rounded-md font-grotesk font-semibold text-sm text-white border border-[#6A00FF] relative overflow-hidden group"
+                className="px-5 py-2 rounded-md font-grotesk font-bold text-xs tracking-widest text-white border border-[#6A00FF] relative overflow-hidden group"
                 style={{ boxShadow: "0 0 15px rgba(106,0,255,0.3)" }}
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-[#6A00FF] to-[#9333EA] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="relative">Register Now</span>
-              </motion.button>
+                <span className="relative">REGISTER NOW</span>
+              </motion.a>
             </div>
 
             <button
@@ -112,17 +117,19 @@ export default function Navbar() {
               <button
                 key={link.label}
                 onClick={() => handleNav(link.href)}
-                className="text-gray-200 hover:text-[#00E5FF] font-grotesk text-base font-medium text-left transition-colors"
+                className="text-gray-200 hover:text-[#00E5FF] font-grotesk text-sm font-bold tracking-widest text-left transition-colors"
               >
                 {link.label}
               </button>
             ))}
-            <button
-              onClick={() => handleNav("#register")}
-              className="mt-2 px-5 py-3 rounded-md font-grotesk font-semibold text-sm text-white bg-gradient-to-r from-[#6A00FF] to-[#9333EA]"
+            <a
+              href={REGISTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 px-5 py-3 rounded-md font-grotesk font-bold text-xs tracking-widest text-white bg-gradient-to-r from-[#6A00FF] to-[#9333EA] text-center"
             >
-              Register Now
-            </button>
+              REGISTER NOW
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
