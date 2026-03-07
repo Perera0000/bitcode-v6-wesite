@@ -1,5 +1,6 @@
 import ParticleBackground from "@/components/ParticleBackground";
 import CustomCursor from "@/components/CustomCursor";
+import FloatingVideo from "@/components/FloatingVideo";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -31,6 +32,7 @@ export default function Home() {
     >
       <CustomCursor />
       <ParticleBackground />
+      <FloatingVideo />
       <div className="relative z-10">
         <Navbar />
         <Hero />
