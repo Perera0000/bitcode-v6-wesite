@@ -67,18 +67,38 @@ export default function Navbar() {
             </motion.div>
 
             {/* Desktop nav */}
-            <div className="hidden xl:flex items-center gap-5">
-              {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => handleNav(link.href)}
-                  className="text-gray-300 hover:text-[#00E5FF] transition-colors duration-200 font-grotesk text-xs font-bold tracking-widest relative group"
-                  data-testid={`nav-link-${link.label.toLowerCase()}`}
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00E5FF] group-hover:w-full transition-all duration-300" />
-                </button>
-              ))}
+            <div className="hidden xl:flex items-center gap-3">
+              {navLinks.flatMap((link, i) => {
+                const btn = (
+                  <button
+                    key={link.label}
+                    onClick={() => handleNav(link.href)}
+                    className="text-gray-300 hover:text-[#00E5FF] transition-colors duration-200 font-grotesk text-xs font-bold tracking-widest relative group"
+                    data-testid={`nav-link-${link.label.toLowerCase()}`}
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00E5FF] group-hover:w-full transition-all duration-300" />
+                  </button>
+                );
+                if (i < navLinks.length - 1) {
+                  return [
+                    btn,
+                    <span
+                      key={`sep-${i}`}
+                      className="text-[8px] select-none pointer-events-none"
+                      style={{
+                        color: "#00E5FF",
+                        textShadow: "0 0 6px rgba(0,229,255,0.8)",
+                        opacity: 0.6,
+                      }}
+                      aria-hidden="true"
+                    >
+                      •
+                    </span>,
+                  ];
+                }
+                return [btn];
+              })}
 
               {/* Delegate Booklet button */}
               <motion.a

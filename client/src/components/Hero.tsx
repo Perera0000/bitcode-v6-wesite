@@ -177,18 +177,14 @@ export default function Hero() {
           className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 will-change-transform"
         >
           <div className="max-w-6xl mx-auto w-full flex flex-col items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-4"
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.72 }}
+              transition={{ duration: 1.4, delay: 0.1 }}
+              className="mb-6 font-sans font-light text-[11px] tracking-[0.28em] uppercase text-gray-300"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#6A00FF]/40 bg-[#6A00FF]/10 text-[#00E5FF] text-sm font-grotesk font-medium backdrop-blur-sm">
-                <Sparkles className="w-4 h-4" />
-                BITSA Presents
-                <Sparkles className="w-4 h-4" />
-              </span>
-            </motion.div>
+              Organized by BITSA – Rajarata University
+            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 40 }}
