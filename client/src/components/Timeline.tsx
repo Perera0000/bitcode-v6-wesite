@@ -37,7 +37,7 @@ const events = [
   {
     date: "April 02",
     title: "Final Hackathon",
-    desc: "18-hour physical hackathon at Rajarata University. Build your masterpiece and claim the throne.",
+    desc: "6-hour physical hackathon at Rajarata University. Build your masterpiece and claim the throne.",
     status: "upcoming",
     color: "#0EA5E9",
     icon: "🏆",

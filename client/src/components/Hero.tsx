@@ -246,9 +246,9 @@ export default function Hero() {
           >
             {[
               { value: "LKR 130K", label: "Prize Pool" },
-              { value: "18 Hrs", label: "Final Hackathon" },
+              { value: "6 Hrs", label: "Final Hackathon" },
               { value: "30 Qns", label: "Pre-Selection" },
-              { value: "Multi-Uni", label: "Competition" },
+              { value: "INTER-Uni", label: "Competition" },
             ].map((stat, i) => (
               <motion.div
                 key={i}

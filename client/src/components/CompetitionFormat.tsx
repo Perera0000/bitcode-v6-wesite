@@ -161,7 +161,7 @@ export default function CompetitionFormat() {
                 <Clock className="w-4 h-4 text-[#00E5FF] mt-0.5 flex-shrink-0" />
                 <div>
                   <span className="font-grotesk font-medium text-white text-sm">Duration: </span>
-                  <span className="font-sans text-gray-300 text-sm">18 Hours Non-Stop</span>
+                  <span className="font-sans text-gray-300 text-sm">6 Hours Non-Stop</span>
                 </div>
               </div>
               <div className="flex items-start gap-3">

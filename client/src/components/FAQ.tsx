@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     q: "How does the competition progress?",
-    a: "The competition begins with an online Pre Selection Round where teams solve coding challenges. The top teams qualify for the Final Round which is an 18 hour physical hackathon held at Rajarata University.",
+    a: "The competition begins with an online Pre Selection Round where teams solve coding challenges. The top teams qualify for the Final Round which is a 6 hour physical hackathon held at Rajarata University.",
   },
   {
     q: "When do registrations open?",
