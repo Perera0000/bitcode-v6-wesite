@@ -12,7 +12,7 @@ const difficultyColors: Record<string, string> = {
 
 export default function CompetitionFormat() {
   return (
-    <section id="competition" className="relative py-28 px-4">
+    <section id="competition" className="relative py-28 px-4 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="absolute left-0 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-3xl opacity-8"

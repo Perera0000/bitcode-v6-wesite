@@ -39,7 +39,7 @@ const topPrizes = [
 
 export default function PrizePools() {
   return (
-    <section id="prizes" className="relative py-28 px-4">
+    <section id="prizes" className="relative py-28 px-4 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-8"

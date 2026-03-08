@@ -38,7 +38,7 @@ const criteria = [
 
 export default function JudgingCriteria() {
   return (
-    <section id="judging" className="relative py-28 px-4">
+    <section id="judging" className="relative py-28 px-4 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="absolute left-1/2 top-0 -translate-x-1/2 w-[500px] h-[300px] blur-3xl opacity-10"

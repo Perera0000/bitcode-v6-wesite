@@ -42,7 +42,7 @@ function AnimatedSection({ children, className = "" }: { children: React.ReactNo
 
 export default function About() {
   return (
-    <section id="about" className="relative py-28 px-4">
+    <section id="about" className="relative py-28 px-4 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl opacity-10"

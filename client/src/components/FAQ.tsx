@@ -135,7 +135,7 @@ export default function FAQ() {
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section id="faq" className="relative py-28 px-4">
+    <section id="faq" className="relative py-28 px-4 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="absolute right-0 top-1/3 w-80 h-80 rounded-full blur-3xl opacity-8"

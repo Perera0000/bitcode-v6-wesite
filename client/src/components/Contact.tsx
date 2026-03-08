@@ -205,7 +205,7 @@ function ContactCard({ name, phone, email, image, color, colorRgb, delay, index 
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative py-28 px-4">
+    <section id="contact" className="relative py-28 px-4 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full blur-3xl opacity-10"

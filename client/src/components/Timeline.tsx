@@ -54,7 +54,7 @@ const events = [
 
 export default function Timeline() {
   return (
-    <section id="timeline" className="relative py-28 px-4">
+    <section id="timeline" className="relative py-28 px-4 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="absolute right-0 top-0 w-96 h-96 rounded-full blur-3xl opacity-8"
@@ -113,9 +113,8 @@ export default function Timeline() {
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   data-testid={`timeline-event-${i}`}
-                  className={`relative flex items-center gap-6 sm:gap-0 ${
-                    isLeft ? "sm:flex-row" : "sm:flex-row-reverse"
-                  }`}
+                  className={`relative flex items-center gap-6 sm:gap-0 ${isLeft ? "sm:flex-row" : "sm:flex-row-reverse"
+                    }`}
                 >
                   <div className="absolute left-8 sm:left-1/2 -translate-x-1/2 z-10">
                     <motion.div
@@ -160,9 +159,8 @@ export default function Timeline() {
                       </p>
 
                       <ChevronRight
-                        className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${
-                          isLeft ? "hidden sm:block -right-6" : "hidden sm:block -left-6 rotate-180"
-                        }`}
+                        className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${isLeft ? "hidden sm:block -right-6" : "hidden sm:block -left-6 rotate-180"
+                          }`}
                         style={{ color: event.color }}
                       />
                     </motion.div>
