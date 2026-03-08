@@ -30,14 +30,20 @@ export default function ParticleBackground() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    let isMobile = window.innerWidth < 768;
+
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      isMobile = window.innerWidth < 768;
     };
     resize();
     window.addEventListener("resize", resize);
 
-    const count = Math.min(80, Math.floor((window.innerWidth * window.innerHeight) / 15000));
+    const maxParticles = isMobile ? 30 : 80;
+    const divisor = isMobile ? 30000 : 15000;
+    const count = Math.min(maxParticles, Math.floor((window.innerWidth * window.innerHeight) / divisor));
+
     particlesRef.current = Array.from({ length: count }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -74,29 +80,32 @@ export default function ParticleBackground() {
         ctx.fillStyle = p.color + currentOpacity + ")";
         ctx.fill();
 
-        if (currentSize > 1.5) {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, currentSize * 3, 0, Math.PI * 2);
-          const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, currentSize * 3);
-          gradient.addColorStop(0, p.color + (currentOpacity * 0.3) + ")");
-          gradient.addColorStop(1, p.color + "0)");
-          ctx.fillStyle = gradient;
-          ctx.fill();
-        }
-
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            const lineOpacity = (1 - dist / 120) * 0.15;
+        // Skip heavy drawing operations on mobile
+        if (!isMobile) {
+          if (currentSize > 1.5) {
             ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = p.color + lineOpacity + ")";
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
+            ctx.arc(p.x, p.y, currentSize * 3, 0, Math.PI * 2);
+            const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, currentSize * 3);
+            gradient.addColorStop(0, p.color + (currentOpacity * 0.3) + ")");
+            gradient.addColorStop(1, p.color + "0)");
+            ctx.fillStyle = gradient;
+            ctx.fill();
+          }
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
+              const lineOpacity = (1 - dist / 120) * 0.15;
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = p.color + lineOpacity + ")";
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
           }
         }
       }

@@ -1,4 +1,4 @@
-import { useRef, useState, Component, ReactNode } from "react";
+import { useEffect, useRef, useState, Component, ReactNode } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, Sparkles } from "lucide-react";
 import Spline from "@splinetool/react-spline";
@@ -78,6 +78,14 @@ export default function Hero() {
   const scrollIndicatorRef = useRef<HTMLButtonElement>(null);
   const [splineLoaded, setSplineLoaded] = useState(false);
   const [webGLSupported] = useState(() => detectWebGL());
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleNav = (href: string) => {
     const el = document.querySelector(href);
@@ -150,7 +158,7 @@ export default function Hero() {
             <GalaxyFallback />
           </div>
 
-          {webGLSupported && (
+          {webGLSupported && !isMobile && (
             <SplineErrorBoundary fallback={<GalaxyFallback />}>
               <Spline
                 scene="https://prod.spline.design/EHeMmhu8d8IeXpBM/scene.splinecode"
