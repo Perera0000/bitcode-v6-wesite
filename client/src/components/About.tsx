@@ -126,16 +126,21 @@ export default function About() {
                   <div className="mt-4 font-sans text-xs text-gray-400 tracking-widest uppercase">
                     Magical Tech Universe
                   </div>
-                  <div className="mt-6 grid grid-cols-3 gap-3">
-                    {["Python", "Java", "C++"].map((lang) => (
-                      <div
-                        key={lang}
-                        className="px-2 py-1 rounded-md text-xs font-grotesk font-medium text-[#00E5FF] border border-[#00E5FF]/20"
-                        style={{ background: "rgba(0,229,255,0.05)" }}
-                      >
-                        {lang}
-                      </div>
-                    ))}
+                  <div className="mt-6 flex flex-col items-center">
+                    <div className="grid grid-cols-3 gap-3 w-full">
+                      {["Python", "Java", "C++"].map((lang) => (
+                        <div
+                          key={lang}
+                          className="px-2 py-1 rounded-md text-xs sm:text-[10px] md:text-xs font-grotesk font-medium text-[#00E5FF] border border-[#00E5FF]/20 text-center"
+                          style={{ background: "rgba(0,229,255,0.05)" }}
+                        >
+                          {lang}
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-3 text-[11px] font-sans text-[#00E5FF]/70 tracking-widest uppercase">
+                      + Many More
+                    </div>
                   </div>
                 </div>
                 <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse" />
