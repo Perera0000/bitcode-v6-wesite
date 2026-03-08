@@ -128,7 +128,7 @@ export default function Register() {
           </motion.div>
 
           <p className="mt-6 font-sans text-gray-500 text-xs">
-            Registration opens March 10, 2025 · Closes March 21, 2025
+            Registration opens March 10, 2026 · Closes March 21, 2026
           </p>
         </motion.div>
 

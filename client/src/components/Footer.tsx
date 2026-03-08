@@ -200,7 +200,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-[#6A00FF]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-sans text-gray-500 text-xs text-center sm:text-left">
-            © 2025 BITSA · Department of Information Systems · Rajarata University of Sri Lanka
+            © 2026 BITSA · Department of Information Systems · Rajarata University of Sri Lanka
           </p>
           <div className="flex items-center gap-3">
             {socials.map(({ Icon, label, href }) => (
