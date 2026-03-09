@@ -75,7 +75,7 @@ export default function DelegateBooklet() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
-                    className="w-full h-[80vh] rounded-2xl overflow-hidden border border-white/10 bg-[#0B0F19]/50 backdrop-blur-md shadow-[0_0_40px_rgba(106,0,255,0.15)] relative"
+                    className="hidden md:block w-full h-[80vh] rounded-2xl overflow-hidden border border-white/10 bg-[#0B0F19]/50 backdrop-blur-md shadow-[0_0_40px_rgba(106,0,255,0.15)] relative"
                 >
                     {/* Decorative glows for the viewer container */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-[#00E5FF]/5 rounded-full blur-[100px] pointer-events-none" />
