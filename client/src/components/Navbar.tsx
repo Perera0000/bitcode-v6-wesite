@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap, BookOpen } from "lucide-react";
+import { Link } from "wouter";
 
 const REGISTER_URL =
   "https://forms.gle/t5rgVJw7FVczj8saA";
@@ -36,8 +37,8 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-            ? "bg-[#0B0F19]/90 backdrop-blur-xl border-b border-purple-500/20"
-            : "bg-transparent"
+          ? "bg-[#0B0F19]/90 backdrop-blur-xl border-b border-purple-500/20"
+          : "bg-transparent"
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,19 +101,19 @@ export default function Navbar() {
               })}
 
               {/* Delegate Booklet button */}
-              <motion.a
-                href="#delegate-booklet"
-                onClick={(e) => e.preventDefault()}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                data-testid="nav-delegate-btn"
-                className="flex items-center gap-1.5 px-4 py-2 rounded-md font-grotesk font-bold text-xs tracking-widest text-[#00E5FF] border border-[#00E5FF]/40 relative overflow-hidden group"
-                style={{ boxShadow: "0 0 12px rgba(0,229,255,0.15)" }}
-              >
-                <span className="absolute inset-0 bg-[#00E5FF] opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                <BookOpen className="w-3.5 h-3.5 relative z-10" />
-                <span className="relative z-10">DELEGATE BOOKLET</span>
-              </motion.a>
+              <Link href="/delegate-booklet">
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
+                  data-testid="nav-delegate-btn"
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-md font-grotesk font-bold text-xs tracking-widest text-[#00E5FF] border border-[#00E5FF]/40 relative overflow-hidden group cursor-pointer"
+                  style={{ boxShadow: "0 0 12px rgba(0,229,255,0.15)" }}
+                >
+                  <span className="absolute inset-0 bg-[#00E5FF] opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                  <BookOpen className="w-3.5 h-3.5 relative z-10" />
+                  <span className="relative z-10">DELEGATE BOOKLET</span>
+                </motion.a>
+              </Link>
 
               {/* Register Now button */}
               <motion.a
@@ -161,14 +162,15 @@ export default function Navbar() {
                 {link.label}
               </button>
             ))}
-            <a
-              href="#delegate-booklet"
-              onClick={(e) => { e.preventDefault(); setMobileOpen(false); }}
-              className="flex items-center gap-2 px-5 py-3 rounded-md font-grotesk font-bold text-xs tracking-widest text-[#00E5FF] border border-[#00E5FF]/30 text-center justify-center"
-            >
-              <BookOpen className="w-4 h-4" />
-              DELEGATE BOOKLET
-            </a>
+            <Link href="/delegate-booklet">
+              <a
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-2 px-5 py-3 rounded-md font-grotesk font-bold text-xs tracking-widest text-[#00E5FF] border border-[#00E5FF]/30 text-center justify-center cursor-pointer"
+              >
+                <BookOpen className="w-4 h-4" />
+                DELEGATE BOOKLET
+              </a>
+            </Link>
             <a
               href={REGISTER_URL}
               target="_blank"
