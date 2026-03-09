@@ -75,14 +75,14 @@ export default function DelegateBooklet() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
-                    className="hidden md:block w-full h-[80vh] rounded-2xl overflow-hidden border border-white/10 bg-[#0B0F19]/50 backdrop-blur-md shadow-[0_0_40px_rgba(106,0,255,0.15)] relative"
+                    className="hidden md:block w-full h-[80vh] rounded-2xl overflow-hidden border border-[#00E5FF]/40 bg-[#0B0F19]/50 backdrop-blur-md shadow-[0_0_40px_rgba(106,0,255,0.4),0_0_20px_rgba(0,229,255,0.3)] relative"
                 >
                     {/* Decorative glows for the viewer container */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#00E5FF]/5 rounded-full blur-[100px] pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#6A00FF]/10 rounded-full blur-[100px] pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#00E5FF]/10 rounded-full blur-[100px] pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#6A00FF]/20 rounded-full blur-[100px] pointer-events-none" />
 
                     <iframe
-                        src="/delegate-booklet.pdf"
+                        src="/delegate-booklet.pdf#toolbar=0&navpanes=0&scrollbar=0"
                         title="Delegate Booklet Preview"
                         className="w-full h-full relative z-10"
                         style={{ backgroundColor: "transparent" }}
