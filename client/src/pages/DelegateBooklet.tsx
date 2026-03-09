@@ -55,7 +55,7 @@ export default function DelegateBooklet() {
                         </div>
                         <div className="flex items-center gap-2 px-4 py-2 bg-[#ffffff05] border border-white/10 rounded-lg backdrop-blur-md">
                             <Layers className="w-4 h-4 text-[#9333EA]" />
-                            <span className="font-grotesk font-bold text-xs tracking-widest text-gray-300">30 PAGES</span>
+                            <span className="font-grotesk font-bold text-xs tracking-widest text-gray-300">16 PAGES</span>
                         </div>
                     </div>
 
