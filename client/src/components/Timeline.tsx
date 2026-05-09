@@ -35,7 +35,7 @@ const events = [
     icon: "⚡",
   },
   {
-    date: "April 02",
+    date: "May 16",
     title: "Final Hackathon",
     desc: "6-hour physical hackathon at Rajarata University. Build your masterpiece and claim the throne.",
     status: "upcoming",
@@ -43,7 +43,7 @@ const events = [
     icon: "🏆",
   },
   {
-    date: "April 02",
+    date: "May 16",
     title: "Award Ceremony",
     desc: "The greatest wizards of BITCODE V6.0 are crowned. Prizes, glory, and legend await.",
     status: "upcoming",
